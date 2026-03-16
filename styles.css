@@ -809,3 +809,20 @@ textarea {
   min-height: 100%;
 }
 
+
+.org-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.org-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background-color: white;
+  padding: 6px;
+}
+
