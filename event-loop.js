@@ -1,30 +1,18 @@
-const fs = require('fs');
+console.log("1")
+setImmediate(() => console.log("2"))
+setTimeout(() => console.log("3"), 0)
+Promise.resolve().then(() => console.log("4"))
+console.log("5")
 
-process.nextTick(() => {
-    setTimeout(() => {
-        console.log("Timeout 1")
+function test() {
+    try {
+        return 1
     }
-        , 0);
-    console.log("nextTick")
-});
-
-
-fs.readFile(__filename, () => {
-    process.nextTick(() => console.log("nextTick in readFile"));
-    setTimeout(() => {
-        console.log("Timeout 2")
-    }, 0);
-    Promise.resolve().then(() => console.log("Promise in readFile"));
-    setImmediate(() => console.log("Immediate 1"));
-});
-
-
-
-console.log("Start");
-
-setImmediate(() => console.log("Immediate 2"));
-
-process.nextTick(() => console.log("nextTick 1"));
-process.nextTick(() => console.log("nextTick 2"));
-
-console.log("End");
+    catch (e) {
+        return 2
+    }
+    finally {
+        return 3
+    }
+}
+// console.log(test())
